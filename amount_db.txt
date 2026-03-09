@@ -1,0 +1,16 @@
+
+✅ Task: Amount of Data to DB — FINAL ANALYSIS
+📊 Dataset Statistics:
+Total Rows (Records): 4,494
+Total Columns (Attributes): 18
+File Size: ~313 KB
+Data Type: Structured tabular data
+Format: CSV (Relational structure)
+Data Nature: Healthcare analytical dataset
+Storage Type: Lightweight dataset
+Scalability: Easily storable in DB systems
+Performance Impact: Low (fast querying & processing)
+🧠 Professional DB Statement:
+The dataset consists of 4,494 records with 18 structured attributes stored in a lightweight CSV format (~313 KB). The data volume is optimized for efficient database storage, fast querying, and high-performance analytical processing. It is suitable for integration with visualization and BI tools without performance overhead.
+🧾 Student-friendly version:
+Data is small in size, well-structured, easy to store in database, and fast to analyze.
