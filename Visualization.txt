@@ -1,0 +1,54 @@
+
+📊 Final Visualization Plan:
+🎯 Total Visualizations: 10–12 charts
+📈 Charts Breakdown:
+1️⃣ Heart Disease Distribution
+Type: Bar / Pie
+Shows: % of people with/without heart disease
+2️⃣ Age Category vs Heart Disease
+Type: Bar
+Shows: Risk by age group
+3️⃣ Gender vs Heart Disease
+Type: Bar
+Shows: Male/Female comparison
+4️⃣ BMI vs Heart Disease
+Type: Scatter / Bar
+Shows: Obesity impact
+5️⃣ Smoking vs Heart Disease
+Type: Bar
+Lifestyle risk factor
+6️⃣ Alcohol Drinking vs Heart Disease
+Type: Bar
+7️⃣ Physical Activity vs Heart Disease
+Type: Bar
+8️⃣ Sleep Time vs Heart Disease
+Type: Line / Bar
+9️⃣ General Health vs Heart Disease
+Type: Bar
+🔟 Diabetes vs Heart Disease
+Type: Bar
+1️⃣1️⃣ Stroke vs Heart Disease
+Type: Bar
+1️⃣2️⃣ Comorbidity Analysis (Asthma, Kidney Disease, Skin Cancer)
+Type: Multi-bar / Heatmap
+📊 Dashboard Structure:
+🧩 Dashboard 1: Overview
+Heart disease distribution
+Age vs heart disease
+Gender vs heart disease
+🧩 Dashboard 2: Lifestyle Factors
+Smoking
+Alcohol
+Physical activity
+Sleep
+🧩 Dashboard 3: Health Conditions
+Diabetes
+Stroke
+BMI
+General health
+Other diseases
+✅ Final Task Output:
+Number of Visualizations Planned: 12
+Dashboard Count: 3
+Chart Types: Bar, Pie, Line, Scatter, Heatmap
+Purpose: Risk analysis + pattern detection + insight generation
