@@ -1,0 +1,2668 @@
+{
+  "kpi": {
+    "total_patients": 1500,
+    "positive_cases": 552,
+    "negative_cases": 948,
+    "prevalence_pct": 36.8,
+    "avg_age": 54.1,
+    "avg_cholesterol": 125.6,
+    "avg_bp": 142.1,
+    "avg_bmi": 27.5,
+    "smoking_pct": 39.1
+  },
+  "age_distribution": [
+    {
+      "AgeGroup": "25-34",
+      "HeartDisease_Label": "Negative",
+      "count": 52
+    },
+    {
+      "AgeGroup": "25-34",
+      "HeartDisease_Label": "Positive",
+      "count": 15
+    },
+    {
+      "AgeGroup": "35-44",
+      "HeartDisease_Label": "Negative",
+      "count": 188
+    },
+    {
+      "AgeGroup": "35-44",
+      "HeartDisease_Label": "Positive",
+      "count": 62
+    },
+    {
+      "AgeGroup": "45-54",
+      "HeartDisease_Label": "Negative",
+      "count": 330
+    },
+    {
+      "AgeGroup": "45-54",
+      "HeartDisease_Label": "Positive",
+      "count": 128
+    },
+    {
+      "AgeGroup": "55-64",
+      "HeartDisease_Label": "Negative",
+      "count": 236
+    },
+    {
+      "AgeGroup": "55-64",
+      "HeartDisease_Label": "Positive",
+      "count": 206
+    },
+    {
+      "AgeGroup": "65+",
+      "HeartDisease_Label": "Negative",
+      "count": 142
+    },
+    {
+      "AgeGroup": "65+",
+      "HeartDisease_Label": "Positive",
+      "count": 141
+    }
+  ],
+  "gender_distribution": [
+    {
+      "Gender": "Female",
+      "HeartDisease_Label": "Negative",
+      "count": 338
+    },
+    {
+      "Gender": "Female",
+      "HeartDisease_Label": "Positive",
+      "count": 157
+    },
+    {
+      "Gender": "Male",
+      "HeartDisease_Label": "Negative",
+      "count": 610
+    },
+    {
+      "Gender": "Male",
+      "HeartDisease_Label": "Positive",
+      "count": 395
+    }
+  ],
+  "cholesterol_distribution": [
+    {
+      "CholBin": "<200 (Optimal)",
+      "HeartDisease_Label": "Negative",
+      "count": 944
+    },
+    {
+      "CholBin": "<200 (Optimal)",
+      "HeartDisease_Label": "Positive",
+      "count": 549
+    },
+    {
+      "CholBin": "200-239 (Borderline)",
+      "HeartDisease_Label": "Negative",
+      "count": 4
+    },
+    {
+      "CholBin": "200-239 (Borderline)",
+      "HeartDisease_Label": "Positive",
+      "count": 3
+    }
+  ],
+  "bp_distribution": [
+    {
+      "BPBin": "Normal (<120)",
+      "HeartDisease_Label": "Negative",
+      "count": 130
+    },
+    {
+      "BPBin": "Normal (<120)",
+      "HeartDisease_Label": "Positive",
+      "count": 42
+    },
+    {
+      "BPBin": "Elevated (120-129)",
+      "HeartDisease_Label": "Negative",
+      "count": 145
+    },
+    {
+      "BPBin": "Elevated (120-129)",
+      "HeartDisease_Label": "Positive",
+      "count": 46
+    },
+    {
+      "BPBin": "Stage1 HBP (130-139)",
+      "HeartDisease_Label": "Negative",
+      "count": 218
+    },
+    {
+      "BPBin": "Stage1 HBP (130-139)",
+      "HeartDisease_Label": "Positive",
+      "count": 88
+    },
+    {
+      "BPBin": "Stage2 HBP (140-180)",
+      "HeartDisease_Label": "Negative",
+      "count": 441
+    },
+    {
+      "BPBin": "Stage2 HBP (140-180)",
+      "HeartDisease_Label": "Positive",
+      "count": 365
+    },
+    {
+      "BPBin": "Crisis (>180)",
+      "HeartDisease_Label": "Negative",
+      "count": 14
+    },
+    {
+      "BPBin": "Crisis (>180)",
+      "HeartDisease_Label": "Positive",
+      "count": 11
+    }
+  ],
+  "lifestyle_factors": {
+    "Smoking": [
+      {
+        "Smoking": "No",
+        "HeartDisease_Label": "Negative",
+        "count": 638
+      },
+      {
+        "Smoking": "No",
+        "HeartDisease_Label": "Positive",
+        "count": 275
+      },
+      {
+        "Smoking": "Yes",
+        "HeartDisease_Label": "Negative",
+        "count": 310
+      },
+      {
+        "Smoking": "Yes",
+        "HeartDisease_Label": "Positive",
+        "count": 277
+      }
+    ],
+    "PhysicalActivity": [
+      {
+        "PhysicalActivity": "High",
+        "HeartDisease_Label": "Negative",
+        "count": 247
+      },
+      {
+        "PhysicalActivity": "High",
+        "HeartDisease_Label": "Positive",
+        "count": 130
+      },
+      {
+        "PhysicalActivity": "Low",
+        "HeartDisease_Label": "Negative",
+        "count": 310
+      },
+      {
+        "PhysicalActivity": "Low",
+        "HeartDisease_Label": "Positive",
+        "count": 205
+      },
+      {
+        "PhysicalActivity": "Moderate",
+        "HeartDisease_Label": "Negative",
+        "count": 391
+      },
+      {
+        "PhysicalActivity": "Moderate",
+        "HeartDisease_Label": "Positive",
+        "count": 217
+      }
+    ],
+    "AlcoholConsumption": [
+      {
+        "AlcoholConsumption": 0,
+        "HeartDisease_Label": "Negative",
+        "count": 622
+      },
+      {
+        "AlcoholConsumption": 0,
+        "HeartDisease_Label": "Positive",
+        "count": 324
+      },
+      {
+        "AlcoholConsumption": 1,
+        "HeartDisease_Label": "Negative",
+        "count": 326
+      },
+      {
+        "AlcoholConsumption": 1,
+        "HeartDisease_Label": "Positive",
+        "count": 228
+      }
+    ],
+    "DietQuality": [
+      {
+        "DietQuality": "Average",
+        "HeartDisease_Label": "Negative",
+        "count": 442
+      },
+      {
+        "DietQuality": "Average",
+        "HeartDisease_Label": "Positive",
+        "count": 253
+      },
+      {
+        "DietQuality": "Good",
+        "HeartDisease_Label": "Negative",
+        "count": 249
+      },
+      {
+        "DietQuality": "Good",
+        "HeartDisease_Label": "Positive",
+        "count": 147
+      },
+      {
+        "DietQuality": "Poor",
+        "HeartDisease_Label": "Negative",
+        "count": 257
+      },
+      {
+        "DietQuality": "Poor",
+        "HeartDisease_Label": "Positive",
+        "count": 152
+      }
+    ]
+  },
+  "bmi_distribution": [
+    {
+      "BMICategory": "Normal",
+      "HeartDisease_Label": "Negative",
+      "count": 265
+    },
+    {
+      "BMICategory": "Normal",
+      "HeartDisease_Label": "Positive",
+      "count": 146
+    },
+    {
+      "BMICategory": "Obese",
+      "HeartDisease_Label": "Negative",
+      "count": 308
+    },
+    {
+      "BMICategory": "Obese",
+      "HeartDisease_Label": "Positive",
+      "count": 187
+    },
+    {
+      "BMICategory": "Overweight",
+      "HeartDisease_Label": "Negative",
+      "count": 318
+    },
+    {
+      "BMICategory": "Overweight",
+      "HeartDisease_Label": "Positive",
+      "count": 188
+    },
+    {
+      "BMICategory": "Underweight",
+      "HeartDisease_Label": "Negative",
+      "count": 57
+    },
+    {
+      "BMICategory": "Underweight",
+      "HeartDisease_Label": "Positive",
+      "count": 31
+    }
+  ],
+  "chest_pain": [
+    {
+      "ChestPainType": "Asymptomatic",
+      "HeartDisease_Label": "Negative",
+      "count": 434
+    },
+    {
+      "ChestPainType": "Asymptomatic",
+      "HeartDisease_Label": "Positive",
+      "count": 253
+    },
+    {
+      "ChestPainType": "Atypical Angina",
+      "HeartDisease_Label": "Negative",
+      "count": 159
+    },
+    {
+      "ChestPainType": "Atypical Angina",
+      "HeartDisease_Label": "Positive",
+      "count": 101
+    },
+    {
+      "ChestPainType": "Non-Anginal Pain",
+      "HeartDisease_Label": "Negative",
+      "count": 294
+    },
+    {
+      "ChestPainType": "Non-Anginal Pain",
+      "HeartDisease_Label": "Positive",
+      "count": 133
+    },
+    {
+      "ChestPainType": "Typical Angina",
+      "HeartDisease_Label": "Negative",
+      "count": 61
+    },
+    {
+      "ChestPainType": "Typical Angina",
+      "HeartDisease_Label": "Positive",
+      "count": 65
+    }
+  ],
+  "regional": [
+    {
+      "Region": "Central",
+      "total": 301,
+      "positive": 109,
+      "rate": 36.2
+    },
+    {
+      "Region": "East",
+      "total": 310,
+      "positive": 122,
+      "rate": 39.4
+    },
+    {
+      "Region": "North",
+      "total": 281,
+      "positive": 102,
+      "rate": 36.3
+    },
+    {
+      "Region": "South",
+      "total": 291,
+      "positive": 117,
+      "rate": 40.2
+    },
+    {
+      "Region": "West",
+      "total": 317,
+      "positive": 102,
+      "rate": 32.2
+    }
+  ],
+  "correlation": [
+    {
+      "x": "Age",
+      "y": "Age",
+      "value": 1.0
+    },
+    {
+      "x": "Age",
+      "y": "Cholesterol",
+      "value": 0.437
+    },
+    {
+      "x": "Age",
+      "y": "RestingBP",
+      "value": 0.528
+    },
+    {
+      "x": "Age",
+      "y": "BMI",
+      "value": -0.012
+    },
+    {
+      "x": "Age",
+      "y": "MaxHR",
+      "value": -0.643
+    },
+    {
+      "x": "Age",
+      "y": "STDepression",
+      "value": 0.017
+    },
+    {
+      "x": "Age",
+      "y": "SleepHours",
+      "value": 0.011
+    },
+    {
+      "x": "Age",
+      "y": "StressLevel_num",
+      "value": -0.022
+    },
+    {
+      "x": "Age",
+      "y": "HeartDisease",
+      "value": 0.205
+    },
+    {
+      "x": "Cholesterol",
+      "y": "Age",
+      "value": 0.437
+    },
+    {
+      "x": "Cholesterol",
+      "y": "Cholesterol",
+      "value": 1.0
+    },
+    {
+      "x": "Cholesterol",
+      "y": "RestingBP",
+      "value": 0.243
+    },
+    {
+      "x": "Cholesterol",
+      "y": "BMI",
+      "value": 0.007
+    },
+    {
+      "x": "Cholesterol",
+      "y": "MaxHR",
+      "value": -0.271
+    },
+    {
+      "x": "Cholesterol",
+      "y": "STDepression",
+      "value": -0.027
+    },
+    {
+      "x": "Cholesterol",
+      "y": "SleepHours",
+      "value": 0.03
+    },
+    {
+      "x": "Cholesterol",
+      "y": "StressLevel_num",
+      "value": -0.001
+    },
+    {
+      "x": "Cholesterol",
+      "y": "HeartDisease",
+      "value": 0.062
+    },
+    {
+      "x": "RestingBP",
+      "y": "Age",
+      "value": 0.528
+    },
+    {
+      "x": "RestingBP",
+      "y": "Cholesterol",
+      "value": 0.243
+    },
+    {
+      "x": "RestingBP",
+      "y": "RestingBP",
+      "value": 1.0
+    },
+    {
+      "x": "RestingBP",
+      "y": "BMI",
+      "value": -0.03
+    },
+    {
+      "x": "RestingBP",
+      "y": "MaxHR",
+      "value": -0.339
+    },
+    {
+      "x": "RestingBP",
+      "y": "STDepression",
+      "value": -0.0
+    },
+    {
+      "x": "RestingBP",
+      "y": "SleepHours",
+      "value": -0.009
+    },
+    {
+      "x": "RestingBP",
+      "y": "StressLevel_num",
+      "value": 0.007
+    },
+    {
+      "x": "RestingBP",
+      "y": "HeartDisease",
+      "value": 0.189
+    },
+    {
+      "x": "BMI",
+      "y": "Age",
+      "value": -0.012
+    },
+    {
+      "x": "BMI",
+      "y": "Cholesterol",
+      "value": 0.007
+    },
+    {
+      "x": "BMI",
+      "y": "RestingBP",
+      "value": -0.03
+    },
+    {
+      "x": "BMI",
+      "y": "BMI",
+      "value": 1.0
+    },
+    {
+      "x": "BMI",
+      "y": "MaxHR",
+      "value": 0.027
+    },
+    {
+      "x": "BMI",
+      "y": "STDepression",
+      "value": 0.02
+    },
+    {
+      "x": "BMI",
+      "y": "SleepHours",
+      "value": 0.02
+    },
+    {
+      "x": "BMI",
+      "y": "StressLevel_num",
+      "value": 0.032
+    },
+    {
+      "x": "BMI",
+      "y": "HeartDisease",
+      "value": 0.007
+    },
+    {
+      "x": "MaxHR",
+      "y": "Age",
+      "value": -0.643
+    },
+    {
+      "x": "MaxHR",
+      "y": "Cholesterol",
+      "value": -0.271
+    },
+    {
+      "x": "MaxHR",
+      "y": "RestingBP",
+      "value": -0.339
+    },
+    {
+      "x": "MaxHR",
+      "y": "BMI",
+      "value": 0.027
+    },
+    {
+      "x": "MaxHR",
+      "y": "MaxHR",
+      "value": 1.0
+    },
+    {
+      "x": "MaxHR",
+      "y": "STDepression",
+      "value": -0.039
+    },
+    {
+      "x": "MaxHR",
+      "y": "SleepHours",
+      "value": -0.033
+    },
+    {
+      "x": "MaxHR",
+      "y": "StressLevel_num",
+      "value": -0.0
+    },
+    {
+      "x": "MaxHR",
+      "y": "HeartDisease",
+      "value": -0.14
+    },
+    {
+      "x": "STDepression",
+      "y": "Age",
+      "value": 0.017
+    },
+    {
+      "x": "STDepression",
+      "y": "Cholesterol",
+      "value": -0.027
+    },
+    {
+      "x": "STDepression",
+      "y": "RestingBP",
+      "value": -0.0
+    },
+    {
+      "x": "STDepression",
+      "y": "BMI",
+      "value": 0.02
+    },
+    {
+      "x": "STDepression",
+      "y": "MaxHR",
+      "value": -0.039
+    },
+    {
+      "x": "STDepression",
+      "y": "STDepression",
+      "value": 1.0
+    },
+    {
+      "x": "STDepression",
+      "y": "SleepHours",
+      "value": -0.011
+    },
+    {
+      "x": "STDepression",
+      "y": "StressLevel_num",
+      "value": -0.024
+    },
+    {
+      "x": "STDepression",
+      "y": "HeartDisease",
+      "value": 0.067
+    },
+    {
+      "x": "SleepHours",
+      "y": "Age",
+      "value": 0.011
+    },
+    {
+      "x": "SleepHours",
+      "y": "Cholesterol",
+      "value": 0.03
+    },
+    {
+      "x": "SleepHours",
+      "y": "RestingBP",
+      "value": -0.009
+    },
+    {
+      "x": "SleepHours",
+      "y": "BMI",
+      "value": 0.02
+    },
+    {
+      "x": "SleepHours",
+      "y": "MaxHR",
+      "value": -0.033
+    },
+    {
+      "x": "SleepHours",
+      "y": "STDepression",
+      "value": -0.011
+    },
+    {
+      "x": "SleepHours",
+      "y": "SleepHours",
+      "value": 1.0
+    },
+    {
+      "x": "SleepHours",
+      "y": "StressLevel_num",
+      "value": 0.024
+    },
+    {
+      "x": "SleepHours",
+      "y": "HeartDisease",
+      "value": 0.03
+    },
+    {
+      "x": "StressLevel_num",
+      "y": "Age",
+      "value": -0.022
+    },
+    {
+      "x": "StressLevel_num",
+      "y": "Cholesterol",
+      "value": -0.001
+    },
+    {
+      "x": "StressLevel_num",
+      "y": "RestingBP",
+      "value": 0.007
+    },
+    {
+      "x": "StressLevel_num",
+      "y": "BMI",
+      "value": 0.032
+    },
+    {
+      "x": "StressLevel_num",
+      "y": "MaxHR",
+      "value": -0.0
+    },
+    {
+      "x": "StressLevel_num",
+      "y": "STDepression",
+      "value": -0.024
+    },
+    {
+      "x": "StressLevel_num",
+      "y": "SleepHours",
+      "value": 0.024
+    },
+    {
+      "x": "StressLevel_num",
+      "y": "StressLevel_num",
+      "value": 1.0
+    },
+    {
+      "x": "StressLevel_num",
+      "y": "HeartDisease",
+      "value": 0.007
+    },
+    {
+      "x": "HeartDisease",
+      "y": "Age",
+      "value": 0.205
+    },
+    {
+      "x": "HeartDisease",
+      "y": "Cholesterol",
+      "value": 0.062
+    },
+    {
+      "x": "HeartDisease",
+      "y": "RestingBP",
+      "value": 0.189
+    },
+    {
+      "x": "HeartDisease",
+      "y": "BMI",
+      "value": 0.007
+    },
+    {
+      "x": "HeartDisease",
+      "y": "MaxHR",
+      "value": -0.14
+    },
+    {
+      "x": "HeartDisease",
+      "y": "STDepression",
+      "value": 0.067
+    },
+    {
+      "x": "HeartDisease",
+      "y": "SleepHours",
+      "value": 0.03
+    },
+    {
+      "x": "HeartDisease",
+      "y": "StressLevel_num",
+      "value": 0.007
+    },
+    {
+      "x": "HeartDisease",
+      "y": "HeartDisease",
+      "value": 1.0
+    }
+  ],
+  "scatter_sample": [
+    {
+      "Age": 65,
+      "Cholesterol": 156,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 63,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 56,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 53,
+      "Cholesterol": 143,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 51,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 61,
+      "Cholesterol": 148,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 56,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 38,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 83,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 52,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 62,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 43,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 39,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 48,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 41,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 57,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 44,
+      "Cholesterol": 128,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 47,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 52,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 57,
+      "Cholesterol": 149,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 69,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 50,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 47,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 69,
+      "Cholesterol": 144,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 49,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 46,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 41,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 55,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 50,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 55,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 65,
+      "Cholesterol": 143,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 46,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 46,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 70,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 56,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 36,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 70,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 30,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 61,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 47,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 35,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 78,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 69,
+      "Cholesterol": 185,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 43,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 70,
+      "Cholesterol": 142,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 38,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 45,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 61,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 52,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 56,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 33,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 53,
+      "Cholesterol": 127,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 67,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 44,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 56,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 40,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 77,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 32,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 75,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 50,
+      "Cholesterol": 126,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 58,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 63,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 57,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 41,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 46,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 53,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 48,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 51,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 74,
+      "Cholesterol": 141,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 54,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 71,
+      "Cholesterol": 131,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 60,
+      "Cholesterol": 141,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 45,
+      "Cholesterol": 132,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 51,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 40,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 79,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 45,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 56,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 54,
+      "Cholesterol": 135,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 57,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 47,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 35,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 60,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 53,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 54,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 48,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 53,
+      "Cholesterol": 136,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 76,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 45,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 43,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 49,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 67,
+      "Cholesterol": 147,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 58,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 37,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 53,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 38,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 72,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 59,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 58,
+      "Cholesterol": 143,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 72,
+      "Cholesterol": 128,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 37,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 78,
+      "Cholesterol": 161,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 51,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 47,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 51,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 51,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 63,
+      "Cholesterol": 127,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 56,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 63,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 72,
+      "Cholesterol": 135,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 59,
+      "Cholesterol": 160,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 47,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 51,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 42,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 48,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 43,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 63,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 44,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 45,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 44,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 38,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 44,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 47,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 56,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 55,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 46,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 51,
+      "Cholesterol": 150,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 51,
+      "Cholesterol": 135,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 37,
+      "Cholesterol": 135,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 54,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 43,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 60,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 39,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 68,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 72,
+      "Cholesterol": 173,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 62,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 52,
+      "Cholesterol": 142,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 33,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 57,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 37,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 39,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 47,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 64,
+      "Cholesterol": 128,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 32,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 43,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 37,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 52,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 52,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 70,
+      "Cholesterol": 123,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 48,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 58,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 44,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 34,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 52,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 67,
+      "Cholesterol": 121,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 25,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 56,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 50,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 41,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 78,
+      "Cholesterol": 122,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 48,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 49,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 71,
+      "Cholesterol": 144,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 40,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 62,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 57,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 40,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 72,
+      "Cholesterol": 165,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 47,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 48,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 46,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 66,
+      "Cholesterol": 121,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 60,
+      "Cholesterol": 129,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 64,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 51,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 66,
+      "Cholesterol": 161,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 36,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 70,
+      "Cholesterol": 122,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 59,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 57,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 71,
+      "Cholesterol": 163,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 60,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 56,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 47,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 43,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 34,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 29,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 67,
+      "Cholesterol": 152,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 60,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 76,
+      "Cholesterol": 136,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 51,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 67,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 39,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 51,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 41,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 28,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 47,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 58,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 39,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 75,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 54,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 71,
+      "Cholesterol": 188,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 53,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 54,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 61,
+      "Cholesterol": 138,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 49,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 51,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 49,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 60,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 47,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 61,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 58,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 68,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 58,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 63,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 64,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 59,
+      "Cholesterol": 170,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 70,
+      "Cholesterol": 150,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 27,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 44,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 52,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 46,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 47,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 65,
+      "Cholesterol": 135,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 57,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 29,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 59,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 43,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 34,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 47,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 84,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 44,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 60,
+      "Cholesterol": 148,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 84,
+      "Cholesterol": 143,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 49,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 50,
+      "Cholesterol": 130,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 75,
+      "Cholesterol": 151,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 36,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 54,
+      "Cholesterol": 139,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 45,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 61,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 37,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 32,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 30,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 61,
+      "Cholesterol": 127,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 41,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 48,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 63,
+      "Cholesterol": 139,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 56,
+      "Cholesterol": 135,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 33,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 57,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 61,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 50,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 41,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 47,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 53,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 72,
+      "Cholesterol": 146,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 34,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 59,
+      "Cholesterol": 121,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 61,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 50,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 62,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 57,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 49,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 68,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 69,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 76,
+      "Cholesterol": 160,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 42,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 66,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 39,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 42,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 63,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 58,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 68,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 79,
+      "Cholesterol": 157,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 74,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 59,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 45,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 60,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 75,
+      "Cholesterol": 186,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 59,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 67,
+      "Cholesterol": 139,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 40,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 58,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 38,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 45,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 63,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 58,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    },
+    {
+      "Age": 52,
+      "Cholesterol": 136,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 75,
+      "Cholesterol": 160,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 48,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 56,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Female"
+    },
+    {
+      "Age": 56,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 62,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 63,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 62,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 54,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Male"
+    },
+    {
+      "Age": 57,
+      "Cholesterol": 130,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 56,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Positive",
+      "Gender": "Male"
+    },
+    {
+      "Age": 55,
+      "Cholesterol": 120,
+      "HeartDisease_Label": "Negative",
+      "Gender": "Female"
+    }
+  ],
+  "risk_by_age": [
+    {
+      "AgeGroup": "25-34",
+      "avg_risk": 22.3
+    },
+    {
+      "AgeGroup": "35-44",
+      "avg_risk": 25.2
+    },
+    {
+      "AgeGroup": "45-54",
+      "avg_risk": 29.5
+    },
+    {
+      "AgeGroup": "55-64",
+      "avg_risk": 47.7
+    },
+    {
+      "AgeGroup": "65+",
+      "avg_risk": 52.8
+    }
+  ],
+  "monthly_trend": [
+    {
+      "month": "Jan",
+      "cases": 58
+    },
+    {
+      "month": "Feb",
+      "cases": 43
+    },
+    {
+      "month": "Mar",
+      "cases": 49
+    },
+    {
+      "month": "Apr",
+      "cases": 53
+    },
+    {
+      "month": "May",
+      "cases": 42
+    },
+    {
+      "month": "Jun",
+      "cases": 46
+    },
+    {
+      "month": "Jul",
+      "cases": 43
+    },
+    {
+      "month": "Aug",
+      "cases": 27
+    },
+    {
+      "month": "Sep",
+      "cases": 48
+    },
+    {
+      "month": "Oct",
+      "cases": 45
+    },
+    {
+      "month": "Nov",
+      "cases": 37
+    },
+    {
+      "month": "Dec",
+      "cases": 43
+    }
+  ]
+}
