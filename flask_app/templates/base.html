@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}HeartWatch Analytics{% endblock %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% block head %}{% endblock %}
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="brand-icon">♥</span>
+    <span class="brand-text">HeartWatch<em>Analytics</em></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a></li>
+    <li><a href="/dashboard" class="nav-link {% if request.path == '/dashboard' %}active{% endif %}">Dashboard</a></li>
+    <li><a href="/risk-factors" class="nav-link {% if request.path == '/risk-factors' %}active{% endif %}">Risk Factors</a></li>
+    <li><a href="/tableau" class="nav-link {% if request.path == '/tableau' %}active{% endif %}">Tableau Guide</a></li>
+    <li><a href="/about" class="nav-link {% if request.path == '/about' %}active{% endif %}">About</a></li>
+  </ul>
+</nav>
+<main>{% block content %}{% endblock %}</main>
+<footer class="footer">
+  <p>HeartWatch Analytics &nbsp;·&nbsp; Built with Python, Flask &amp; Chart.js &nbsp;·&nbsp; 1,500 Patient Records</p>
+</footer>
+{% block scripts %}{% endblock %}
+</body>
+</html>

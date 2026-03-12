@@ -1,0 +1,15 @@
+{
+  "total_patients": 1500,
+  "heart_disease_cases": 552,
+  "healthy_cases": 948,
+  "disease_rate_pct": 36.8,
+  "avg_age": 54.1,
+  "avg_cholesterol": 125.6,
+  "avg_blood_pressure": 142.1,
+  "avg_bmi": 27.5,
+  "smoker_pct": 39.1,
+  "obese_pct": 33.0,
+  "high_risk_avg_age": 57.3,
+  "male_disease_rate": 39.3,
+  "female_disease_rate": 31.7
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "region": "Central",
+    "cases": 109,
+    "total": 301,
+    "rate": 36.2
+  },
+  {
+    "region": "East",
+    "cases": 122,
+    "total": 310,
+    "rate": 39.4
+  },
+  {
+    "region": "North",
+    "cases": 102,
+    "total": 281,
+    "rate": 36.3
+  },
+  {
+    "region": "South",
+    "cases": 117,
+    "total": 291,
+    "rate": 40.2
+  },
+  {
+    "region": "West",
+    "cases": 102,
+    "total": 317,
+    "rate": 32.2
+  }
+]

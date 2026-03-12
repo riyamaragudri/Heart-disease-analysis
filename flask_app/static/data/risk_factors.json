@@ -1,0 +1,34 @@
+[
+  {
+    "factor": "Age>55",
+    "disease_rate": 49.2
+  },
+  {
+    "factor": "Fasting Blood Sugar",
+    "disease_rate": 49.0
+  },
+  {
+    "factor": "Smoking",
+    "disease_rate": 47.2
+  },
+  {
+    "factor": "Exercise Angina",
+    "disease_rate": 46.7
+  },
+  {
+    "factor": "ST Depression",
+    "disease_rate": 31.7
+  },
+  {
+    "factor": "High Cholesterol",
+    "disease_rate": NaN
+  },
+  {
+    "factor": "High BP",
+    "disease_rate": 46.3
+  },
+  {
+    "factor": "Obesity",
+    "disease_rate": 37.8
+  }
+]

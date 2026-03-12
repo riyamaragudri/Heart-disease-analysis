@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% block title %}Demographics — CardioLens{% endblock %}
+{% block page_title %}Demographics Analysis{% endblock %}
+
+{% block content %}
+<div class="section-header">
+  <div class="section-label">POPULATION DEMOGRAPHICS</div>
+  <h1>Age, Gender &amp; Regional Analysis</h1>
+  <p>How cardiovascular risk varies across demographic groups</p>
+</div>
+
+<div class="chart-grid">
+  <div class="chart-card">
+    <div class="chart-title">Disease Rate by Age Group &amp; Gender</div>
+    <div class="chart-sub">Grouped bar — Male vs Female per age bracket</div>
+    <div class="chart-wrap"><canvas id="ageGenderChart"></canvas></div>
+  </div>
+  <div class="chart-card">
+    <div class="chart-title">Gender Distribution</div>
+    <div class="chart-sub">Overall cohort composition and disease split</div>
+    <div class="chart-wrap"><canvas id="genderDist"></canvas></div>
+  </div>
+</div>
+
+<div class="chart-grid">
+  <div class="chart-card">
+    <div class="chart-title">Patient Count by Age Group</div>
+    <div class="chart-sub">Population pyramid by decade</div>
+    <div class="chart-wrap"><canvas id="ageCount"></canvas></div>
+  </div>
+  <div class="chart-card">
+    <div class="chart-title">Regional Comparison</div>
+    <div class="chart-sub">Disease cases and rates by geographic region</div>
+    <div class="chart-wrap"><canvas id="regionalDetail"></canvas></div>
+  </div>
+</div>
+
+<div class="chart-card" style="margin-bottom:20px">
+  <div class="chart-title">Age Distribution Histogram (Disease vs Healthy)</div>
+  <div class="chart-sub">Overlapping age distributions for both cohorts</div>
+  <div class="chart-wrap-lg"><canvas id="ageHistogram"></canvas></div>
+</div>
+
+<!-- Demographic insights table -->
+<div class="section-header"><h1>Demographic Summary Table</h1></div>
+<div class="table-wrap">
+  <table class="data-table" id="demoTable">
+    <thead>
+      <tr>
+        <th>Age Group</th>
+        <th>Gender</th>
+        <th>Total Patients</th>
+        <th>Disease Cases</th>
+        <th>Healthy Cases</th>
+        <th>Disease Rate</th>
+        <th>Risk Level</th>
+      </tr>
+    </thead>
+    <tbody id="demoTableBody"></tbody>
+  </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(async () => {
+  const [ageGender, regional, ageTrend] = await Promise.all([
+    fetchData('/api/age-gender'),
+    fetchData('/api/regional'),
+    fetchData('/api/age-trend'),
+  ]);
+
+  const ageGroups = [...new Set(ageGender.map(d => d.age_group))].sort();
+
+  // Grouped bar — age × gender
+  const maleRates   = ageGroups.map(g => (ageGender.find(d => d.age_group===g && d.gender==='Male') || {rate:0}).rate);
+  const femaleRates = ageGroups.map(g => (ageGender.find(d => d.age_group===g && d.gender==='Female') || {rate:0}).rate);
+
+  makeBar(document.getElementById('ageGenderChart').getContext('2d'), ageGroups,
+    [
+      {label:'Male (%)',   data:maleRates,   backgroundColor:COLORS.blue,   borderRadius:5},
+      {label:'Female (%)', data:femaleRates, backgroundColor:COLORS.purple, borderRadius:5},
+    ]
+  );
+
+  // Gender doughnut
+  const maleTotal   = ageGender.filter(d=>d.gender==='Male').reduce((s,d)=>s+d.total,0);
+  const femaleTotal = ageGender.filter(d=>d.gender==='Female').reduce((s,d)=>s+d.total,0);
+  makeDoughnut(document.getElementById('genderDist').getContext('2d'),
+    ['Male','Female'],[maleTotal,femaleTotal],[COLORS.blue,COLORS.purple]
+  );
+
+  // Patient count by age group
+  const ageCounts = ageGroups.map(g => ageGender.filter(d=>d.age_group===g).reduce((s,d)=>s+d.total,0));
+  makeBar(document.getElementById('ageCount').getContext('2d'), ageGroups,
+    [{label:'Patients', data:ageCounts, backgroundColor:COLORS.teal, borderRadius:5}],
+    {plugins:{legend:{display:false}}}
+  );
+
+  // Regional detail
+  makeBar(document.getElementById('regionalDetail').getContext('2d'),
+    regional.map(d=>d.region),
+    [
+      {label:'Disease Cases', data:regional.map(d=>d.cases),       backgroundColor:COLORS.accent, borderRadius:4},
+      {label:'Healthy Cases', data:regional.map(d=>d.total-d.cases),backgroundColor:COLORS.green, borderRadius:4},
+    ],
+    {scales:{x:{stacked:true},y:{stacked:true}}}
+  );
+
+  // Age histogram (buckets of 5 years)
+  const buckets = {};
+  ageTrend.forEach(d => {
+    const b = Math.floor(d.age/5)*5;
+    const key = `${b}-${b+4}`;
+    if (!buckets[key]) buckets[key] = {disease:0,healthy:0};
+    buckets[key].disease += d.cases;
+    buckets[key].healthy += (d.total - d.cases);
+  });
+  const bKeys = Object.keys(buckets).sort();
+  makeLine(document.getElementById('ageHistogram').getContext('2d'), bKeys,
+    [
+      {label:'Disease', data:bKeys.map(k=>buckets[k].disease), borderColor:COLORS.accent, backgroundColor:'rgba(232,54,93,.2)', fill:true, tension:0.3},
+      {label:'Healthy', data:bKeys.map(k=>buckets[k].healthy), borderColor:COLORS.green,  backgroundColor:'rgba(46,204,113,.15)',fill:true, tension:0.3},
+    ]
+  );
+
+  // Populate table
+  const tbody = document.getElementById('demoTableBody');
+  ageGender.sort((a,b)=>a.age_group.localeCompare(b.age_group)).forEach(d => {
+    const healthy = d.total - d.cases;
+    const risk = d.rate > 50 ? 'pill-red' : d.rate > 35 ? 'pill-yellow' : 'pill-green';
+    const rLabel = d.rate > 50 ? 'High' : d.rate > 35 ? 'Medium' : 'Low';
+    tbody.innerHTML += `
+      <tr>
+        <td>${d.age_group}</td>
+        <td>${d.gender}</td>
+        <td>${d.total}</td>
+        <td>${d.cases}</td>
+        <td>${healthy}</td>
+        <td>${d.rate}%</td>
+        <td><span class="pill ${risk}">${rLabel}</span></td>
+      </tr>`;
+  });
+})();
+</script>
+{% endblock %}

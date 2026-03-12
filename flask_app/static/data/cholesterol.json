@@ -1,0 +1,32 @@
+[
+  {
+    "CholGroup": "<150",
+    "HeartDiseaseLabel": "Disease",
+    "count": 508
+  },
+  {
+    "CholGroup": "<150",
+    "HeartDiseaseLabel": "No Disease",
+    "count": 890
+  },
+  {
+    "CholGroup": "150-200",
+    "HeartDiseaseLabel": "Disease",
+    "count": 41
+  },
+  {
+    "CholGroup": "150-200",
+    "HeartDiseaseLabel": "No Disease",
+    "count": 54
+  },
+  {
+    "CholGroup": "200-240",
+    "HeartDiseaseLabel": "Disease",
+    "count": 3
+  },
+  {
+    "CholGroup": "200-240",
+    "HeartDiseaseLabel": "No Disease",
+    "count": 4
+  }
+]

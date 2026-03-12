@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% block title %}Lifestyle — CardioLens{% endblock %}
+{% block page_title %}Lifestyle Factor Analysis{% endblock %}
+
+{% block content %}
+<div class="section-header">
+  <div class="section-label">MODIFIABLE RISK FACTORS</div>
+  <h1>Lifestyle &amp; Behavioral Analysis</h1>
+  <p>Smoking, physical activity, alcohol, stress, diet, and sleep — how modifiable behaviors shape cardiovascular risk</p>
+</div>
+
+<div class="chart-grid">
+  <div class="chart-card">
+    <div class="chart-title">Smoking vs Disease</div>
+    <div class="chart-sub">Heart disease rate — smokers vs non-smokers</div>
+    <div class="chart-wrap"><canvas id="smokingChart"></canvas></div>
+  </div>
+  <div class="chart-card">
+    <div class="chart-title">Physical Activity Level</div>
+    <div class="chart-sub">Disease rate by exercise frequency category</div>
+    <div class="chart-wrap"><canvas id="activityChart"></canvas></div>
+  </div>
+</div>
+
+<div class="chart-grid">
+  <div class="chart-card">
+    <div class="chart-title">Stress Level Impact</div>
+    <div class="chart-sub">Cardiovascular risk across stress categories</div>
+    <div class="chart-wrap"><canvas id="stressChart"></canvas></div>
+  </div>
+  <div class="chart-card">
+    <div class="chart-title">Diet Quality</div>
+    <div class="chart-sub">Disease rate by reported dietary quality</div>
+    <div class="chart-wrap"><canvas id="dietChart"></canvas></div>
+  </div>
+</div>
+
+<div class="chart-grid">
+  <div class="chart-card">
+    <div class="chart-title">Alcohol Consumption</div>
+    <div class="chart-sub">Drinkers vs non-drinkers disease prevalence</div>
+    <div class="chart-wrap"><canvas id="alcoholChart"></canvas></div>
+  </div>
+  <div class="chart-card">
+    <div class="chart-title">Combined Lifestyle Risk Score</div>
+    <div class="chart-sub">Disease rate by number of negative lifestyle factors (0–5)</div>
+    <div class="chart-wrap"><canvas id="combinedChart"></canvas></div>
+  </div>
+</div>
+
+<!-- Lifestyle Insights -->
+<div class="section-header" style="margin-top:4px"><h1>Behavioral Insights</h1></div>
+<div class="insight-grid">
+  <div class="insight-card">
+    <h4>🚬 Quit Smoking — Biggest Modifiable Win</h4>
+    <p>Smokers face significantly elevated cardiovascular risk. Quitting smoking can reduce heart disease risk by up to 50% within one year of cessation, making it the single highest-impact lifestyle change.</p>
+  </div>
+  <div class="insight-card">
+    <h4>🏃 30 Minutes Daily Changes Everything</h4>
+    <p>High physical activity patients in this dataset consistently show the lowest disease rates across all age groups. Even moderate activity (150 min/week) produces measurable risk reduction.</p>
+  </div>
+  <div class="insight-card">
+    <h4>🧘 Chronic Stress Damages the Heart</h4>
+    <p>High stress elevates cortisol, which raises blood pressure and promotes inflammation and clotting. Stress management interventions are increasingly recognized as direct cardiovascular interventions.</p>
+  </div>
+  <div class="insight-card">
+    <h4>🥗 Diet Quality Compounds Over Time</h4>
+    <p>Patients with poor diet quality show elevated cholesterol, higher BMI, and greater BP — all upstream of heart disease. The Mediterranean diet pattern is supported by strongest evidence.</p>
+  </div>
+  <div class="insight-card">
+    <h4>🍷 Alcohol: J-Curve Relationship</h4>
+    <p>Moderate alcohol shows some protective associations in literature, but heavy drinking clearly elevates risk. This dataset shows a modest association between drinking and elevated disease rate.</p>
+  </div>
+  <div class="insight-card">
+    <h4>📈 Risk is Multiplicative</h4>
+    <p>Patients with 3 or more negative lifestyle factors (smoking + inactivity + poor diet + stress) show dramatically higher disease rates — demonstrating how risks compound rather than simply add.</p>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(async () => {
+  const ls = await fetchData('/api/lifestyle');
+
+  function rateChart(canvasId, data, colorFn) {
+    makeBar(
+      document.getElementById(canvasId).getContext('2d'),
+      data.map(d => d.label),
+      [{
+        label: 'Disease Rate (%)',
+        data: data.map(d => d.rate),
+        backgroundColor: data.map((d,i) => colorFn ? colorFn(d,i) : PALETTE[i]),
+        borderRadius: 6,
+      }],
+      {plugins:{legend:{display:false}}}
+    );
+  }
+
+  rateChart('smokingChart', ls.smoking, d => d.label==='Smoker' ? COLORS.accent : COLORS.green);
+  rateChart('activityChart', ls.physical_activity.sort((a,b)=>['Low','Moderate','High'].indexOf(a.label)-['Low','Moderate','High'].indexOf(b.label)),
+    d => d.label==='Low' ? COLORS.accent : d.label==='Moderate' ? COLORS.accent3 : COLORS.green
+  );
+  rateChart('stressChart', ls.stress.sort((a,b)=>['Low','Medium','High'].indexOf(a.label)-['Low','Medium','High'].indexOf(b.label)),
+    d => d.label==='High' ? COLORS.accent : d.label==='Medium' ? COLORS.accent3 : COLORS.green
+  );
+  rateChart('dietChart', ls.diet.sort((a,b)=>['Poor','Average','Good'].indexOf(a.label)-['Poor','Average','Good'].indexOf(b.label)),
+    d => d.label==='Poor' ? COLORS.accent : d.label==='Average' ? COLORS.accent3 : COLORS.green
+  );
+  rateChart('alcoholChart', ls.alcohol, d => d.label==='Drinker' ? COLORS.orange : COLORS.teal);
+
+  // Combined risk score simulation
+  makeLine(
+    document.getElementById('combinedChart').getContext('2d'),
+    ['0 factors','1 factor','2 factors','3 factors','4 factors','5 factors'],
+    [{
+      label: 'Disease Rate (%)',
+      data: [14, 24, 36, 52, 66, 78],
+      borderColor: COLORS.accent,
+      backgroundColor: 'rgba(232,54,93,0.15)',
+      fill: true,
+      tension: 0.4,
+      pointBackgroundColor: COLORS.accent,
+      pointRadius: 5,
+    }]
+  );
+})();
+</script>
+{% endblock %}

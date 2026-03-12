@@ -1,0 +1,47 @@
+[
+  {
+    "BPGroup": "Low(<90)",
+    "HeartDiseaseLabel": "No Disease",
+    "count": 2
+  },
+  {
+    "BPGroup": "Normal(90-120)",
+    "HeartDiseaseLabel": "Disease",
+    "count": 42
+  },
+  {
+    "BPGroup": "Normal(90-120)",
+    "HeartDiseaseLabel": "No Disease",
+    "count": 128
+  },
+  {
+    "BPGroup": "Pre-High(120-140)",
+    "HeartDiseaseLabel": "Disease",
+    "count": 145
+  },
+  {
+    "BPGroup": "Pre-High(120-140)",
+    "HeartDiseaseLabel": "No Disease",
+    "count": 394
+  },
+  {
+    "BPGroup": "High(140-160)",
+    "HeartDiseaseLabel": "Disease",
+    "count": 259
+  },
+  {
+    "BPGroup": "High(140-160)",
+    "HeartDiseaseLabel": "No Disease",
+    "count": 307
+  },
+  {
+    "BPGroup": "Crisis(>160)",
+    "HeartDiseaseLabel": "Disease",
+    "count": 106
+  },
+  {
+    "BPGroup": "Crisis(>160)",
+    "HeartDiseaseLabel": "No Disease",
+    "count": 117
+  }
+]

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}Tableau Guide — HeartWatch{% endblock %}
+{% block content %}
+<div class="tableau-container">
+  <div class="section-header" style="margin-bottom:2rem">
+    <div class="tag">Integration Guide</div>
+    <h2>Tableau <span>Dashboard</span> Setup</h2>
+    <p>Step-by-step instructions to recreate all visualizations in Tableau Desktop or Tableau Public</p>
+  </div>
+
+  <!-- Embed placeholder (replace with your real Tableau embed code) -->
+  <div class="tableau-embed" style="margin-bottom:2rem">
+    <div class="tableau-placeholder">
+      <div style="font-size:3rem;margin-bottom:1rem">📊</div>
+      <h2>Tableau Workbook Embed</h2>
+      <p>Publish your Tableau workbook to Tableau Public, then replace this section with the embed code provided by Tableau. Use the <code style="background:var(--bg3);padding:2px 8px;border-radius:4px">&lt;tableau-viz&gt;</code> web component or the iframe embed option.</p>
+      <div style="background:var(--bg3);border-radius:10px;padding:1.5rem;margin-top:1.5rem;text-align:left;max-width:600px">
+        <p style="color:var(--accent);font-family:monospace;font-size:0.85rem;margin-bottom:0.5rem">/* Example Tableau embed code */</p>
+        <p style="font-family:monospace;font-size:0.78rem;color:var(--text2)">&lt;tableau-viz id="tableauViz"<br>&nbsp;&nbsp;src="https://public.tableau.com/views/YourWorkbook/Dashboard1"<br>&nbsp;&nbsp;width="100%" height="600"<br>&nbsp;&nbsp;toolbar="bottom" hide-tabs&gt;<br>&lt;/tableau-viz&gt;</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step-by-step guide -->
+  <div class="grid-2">
+    <div class="chart-card">
+      <div class="chart-title" style="margin-bottom:1.25rem">📁 Step 1: Connect Data</div>
+      <ol class="step-list">
+        <li><p><strong>Open Tableau Desktop</strong> or go to Tableau Public online</p></li>
+        <li><p><strong>Connect to Text File</strong> — select <code style="background:var(--bg3);padding:1px 6px;border-radius:3px">heart_disease_clean.csv</code> from the <code>analysis/outputs/</code> folder</p></li>
+        <li><p><strong>Review schema</strong> — confirm all columns imported correctly, especially date/numeric types</p></li>
+        <li><p><strong>Create extract</strong> for faster performance with 1,500+ rows</p></li>
+      </ol>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title" style="margin-bottom:1.25rem">🎨 Step 2: Build Charts</div>
+      <ol class="step-list">
+        <li><p><strong>Sheet 1 — Age Distribution:</strong> Drag AgeGroup to Columns, COUNT(PatientId) to Rows, HeartDisease to Color</p></li>
+        <li><p><strong>Sheet 2 — Cholesterol Bar:</strong> CholBin → Columns, Count → Rows, HeartDisease → Color</p></li>
+        <li><p><strong>Sheet 3 — BP Heatmap:</strong> BPBin → Rows, AgeGroup → Columns, HeartDisease rate → Color (use table calculation)</p></li>
+        <li><p><strong>Sheet 4 — Regional Map:</strong> Region → Detail, Heart Disease Rate → Color with a geographic map</p></li>
+      </ol>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title" style="margin-bottom:1.25rem">🖥️ Step 3: Dashboard Layout</div>
+      <ol class="step-list">
+        <li><p><strong>New Dashboard</strong> — set size to 1400×900 (Desktop)</p></li>
+        <li><p><strong>Add KPI tiles</strong> at the top using text objects with calculated fields for Total Patients, Prevalence %, Avg Age</p></li>
+        <li><p><strong>Arrange sheets</strong> in a 2×3 grid layout — age, gender, cholesterol, BP, lifestyle, regional</p></li>
+        <li><p><strong>Add a filter action</strong>: Dashboard → Actions → Filter — link AgeGroup across all sheets</p></li>
+      </ol>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title" style="margin-bottom:1.25rem">🌐 Step 4: Publish & Embed</div>
+      <ol class="step-list">
+        <li><p><strong>Save as .twbx</strong> (packaged workbook with embedded data)</p></li>
+        <li><p><strong>Publish to Tableau Public</strong> — File → Save to Tableau Public As…</p></li>
+        <li><p><strong>Copy embed code</strong> from the published workbook's Share button</p></li>
+        <li><p><strong>Paste code</strong> into this page's <code style="background:var(--bg3);padding:1px 6px;border-radius:3px">tableau.html</code> inside the <code>.tableau-embed</code> div</p></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Dashboard design guide -->
+  <div class="chart-card" style="margin-top:1.5rem">
+    <div class="chart-title" style="margin-bottom:1.25rem">📐 Recommended Dashboard Layout</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto auto;gap:8px;background:var(--bg3);padding:1rem;border-radius:10px">
+      {% for cell in [
+        ("KPI: Total Patients","var(--accent)"),
+        ("KPI: Prevalence %","var(--accent)"),
+        ("KPI: Avg Age","var(--accent)"),
+        ("Age Group Bar Chart","var(--accent3)"),
+        ("Gender Donut","var(--accent4)"),
+        ("Monthly Trend Line","var(--accent2)"),
+        ("Cholesterol Heatmap","var(--accent3)"),
+        ("BP Category Bar","var(--accent4)"),
+        ("Regional Map","var(--accent2)"),
+      ] %}
+      <div style="background:var(--card);border-radius:8px;padding:0.75rem;border-left:3px solid {{cell[1]}};font-size:0.78rem;color:var(--text2)">{{cell[0]}}</div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

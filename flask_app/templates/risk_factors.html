@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% block title %}Risk Factors — HeartWatch{% endblock %}
+{% block content %}
+<div class="risk-intro">
+  <div class="tag">Clinical Analysis</div>
+  <h1 style="font-family:var(--font-head);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:0.75rem">
+    Major <span style="color:var(--accent)">Risk Factors</span> Explained
+  </h1>
+  <p style="color:var(--text2);max-width:640px;line-height:1.75;margin-bottom:2.5rem">
+    Understanding the primary contributors to cardiovascular disease helps clinicians and patients make informed decisions. Below are the seven most impactful risk factors identified in our dataset analysis.
+  </p>
+
+  <div class="risk-grid" id="riskGrid"></div>
+
+  <div style="margin-top:3rem">
+    <div class="section-header">
+      <div class="tag">Interactive</div>
+      <h2>Factor <span>Impact</span> Chart</h2>
+      <p>Relative contribution of each risk factor to heart disease probability</p>
+    </div>
+    <div class="chart-card">
+      <div class="chart-wrap tall"><canvas id="radarChart"></canvas></div>
+    </div>
+  </div>
+
+  <div style="margin-top:2rem">
+    <div class="section-header">
+      <div class="tag">Scatter Analysis</div>
+      <h2>Age vs <span>Cholesterol</span></h2>
+      <p>300-patient sample showing relationship between age, cholesterol and disease outcome</p>
+    </div>
+    <div class="chart-card">
+      <div class="chart-wrap tall"><canvas id="scatterChart"></canvas></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const C = { red:'#e84b6a', teal:'#4ecdc4', purple:'#a78bfa', orange:'#ff8c42', green:'#2ecc71' };
+const DOPTS = {
+  responsive:true, maintainAspectRatio:false,
+  plugins:{ legend:{ labels:{ color:'#8892b0', font:{family:'DM Sans',size:11} } } },
+  scales:{
+    x:{ ticks:{color:'#8892b0'}, grid:{color:'rgba(255,255,255,0.04)'} },
+    y:{ ticks:{color:'#8892b0'}, grid:{color:'rgba(255,255,255,0.04)'} }
+  }
+};
+
+const RISK_CARDS = [
+  { icon:'🚬', title:'Smoking', risk:85, color:C.red,
+    desc:'Smokers in our dataset are 2.5× more likely to develop heart disease. Nicotine raises blood pressure and damages arterial walls, accelerating atherosclerosis.' },
+  { icon:'💉', title:'High Cholesterol', risk:78, color:C.orange,
+    desc:'Cholesterol above 240 mg/dL significantly elevates risk. LDL particles accumulate in artery walls, forming plaques that restrict blood flow.' },
+  { icon:'📈', title:'High Blood Pressure', risk:72, color:C.purple,
+    desc:'Systolic BP above 140 mmHg is a leading modifiable risk factor. Chronic hypertension strains cardiac muscle and damages vessel linings.' },
+  { icon:'🍔', title:'Obesity (BMI > 30)', risk:65, color:C.yellow,
+    desc:'Obese patients show 1.8× higher prevalence. Excess adipose tissue triggers systemic inflammation and metabolic dysregulation affecting cardiac function.' },
+  { icon:'🧘', title:'Physical Inactivity', risk:60, color:C.teal,
+    desc:'Sedentary patients have significantly elevated risk compared to active counterparts. Regular exercise strengthens the heart and improves lipid profiles.' },
+  { icon:'👴', title:'Age (>55)', risk:70, color:'#f59e0b',
+    desc:'Age is the most significant non-modifiable risk factor. Arterial stiffness increases with age, and cumulative exposure to other risk factors compounds over time.' },
+  { icon:'🍺', title:'Alcohol Consumption', risk:50, color:C.blue||'#3b82f6',
+    desc:'Heavy alcohol use is linked to cardiomyopathy, arrhythmia, and hypertension. Moderate use shows less impact but non-zero risk elevation.' },
+];
+
+document.getElementById('riskGrid').innerHTML = RISK_CARDS.map(c => `
+  <div class="risk-card fade-in">
+    <div class="risk-icon">${c.icon}</div>
+    <h3>${c.title}</h3>
+    <p>${c.desc}</p>
+    <div class="risk-bar-label"><span>Risk Contribution</span><span style="color:${c.color}">${c.risk}%</span></div>
+    <div class="risk-bar-track"><div class="risk-bar-fill" style="width:0%;background:${c.color}" data-target="${c.risk}"></div></div>
+  </div>`).join('');
+
+// Animate bars
+setTimeout(()=>{
+  document.querySelectorAll('.risk-bar-fill').forEach(el=>{
+    el.style.width=el.dataset.target+'%';
+  });
+}, 300);
+
+// Radar chart
+new Chart(document.getElementById('radarChart'), {
+  type:'radar',
+  data:{
+    labels: RISK_CARDS.map(c=>c.title),
+    datasets:[{
+      label:'Risk Impact Score',
+      data: RISK_CARDS.map(c=>c.risk),
+      borderColor:C.red, backgroundColor:C.red+'33', pointBackgroundColor:C.red, pointRadius:5
+    }]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    scales:{ r:{ ticks:{color:'#8892b0',backdropColor:'transparent'}, grid:{color:'rgba(255,255,255,0.1)'}, pointLabels:{color:'#e8ecf5',font:{family:'DM Sans',size:12}} } },
+    plugins:{ legend:{ labels:{ color:'#8892b0', font:{family:'DM Sans'} } } }
+  }
+});
+
+// Scatter
+fetch('/api/scatter').then(r=>r.json()).then(data=>{
+  const pos=data.filter(d=>d.HeartDisease_Label==='Positive');
+  const neg=data.filter(d=>d.HeartDisease_Label==='Negative');
+  new Chart(document.getElementById('scatterChart'),{
+    type:'scatter',
+    data:{
+      datasets:[
+        {label:'Positive',data:pos.map(d=>({x:d.Age,y:d.Cholesterol})),backgroundColor:C.red+'99',pointRadius:4},
+        {label:'Negative',data:neg.map(d=>({x:d.Age,y:d.Cholesterol})),backgroundColor:C.teal+'77',pointRadius:3}
+      ]
+    },
+    options:{
+      ...DOPTS,
+      scales:{
+        x:{...DOPTS.scales.x, title:{display:true,text:'Age (years)',color:'#8892b0'}},
+        y:{...DOPTS.scales.y, title:{display:true,text:'Cholesterol (mg/dL)',color:'#8892b0'}}
+      }
+    }
+  });
+});
+</script>
+{% endblock %}

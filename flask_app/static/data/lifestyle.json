@@ -1,0 +1,90 @@
+{
+  "smoking": [
+    {
+      "label": "Non-Smoker",
+      "cases": 275,
+      "total": 913,
+      "rate": 30.1
+    },
+    {
+      "label": "Smoker",
+      "cases": 277,
+      "total": 587,
+      "rate": 47.2
+    }
+  ],
+  "physical_activity": [
+    {
+      "label": "High",
+      "cases": 130,
+      "total": 377,
+      "rate": 34.5
+    },
+    {
+      "label": "Low",
+      "cases": 205,
+      "total": 515,
+      "rate": 39.8
+    },
+    {
+      "label": "Moderate",
+      "cases": 217,
+      "total": 608,
+      "rate": 35.7
+    }
+  ],
+  "alcohol": [
+    {
+      "label": "Drinker",
+      "cases": 228,
+      "total": 554,
+      "rate": 41.2
+    },
+    {
+      "label": "Non-Drinker",
+      "cases": 324,
+      "total": 946,
+      "rate": 34.2
+    }
+  ],
+  "stress": [
+    {
+      "label": "High",
+      "cases": 150,
+      "total": 386,
+      "rate": 38.9
+    },
+    {
+      "label": "Low",
+      "cases": 158,
+      "total": 418,
+      "rate": 37.8
+    },
+    {
+      "label": "Medium",
+      "cases": 244,
+      "total": 696,
+      "rate": 35.1
+    }
+  ],
+  "diet": [
+    {
+      "label": "Average",
+      "cases": 253,
+      "total": 695,
+      "rate": 36.4
+    },
+    {
+      "label": "Good",
+      "cases": 147,
+      "total": 396,
+      "rate": 37.1
+    },
+    {
+      "label": "Poor",
+      "cases": 152,
+      "total": 409,
+      "rate": 37.2
+    }
+  ]
+}

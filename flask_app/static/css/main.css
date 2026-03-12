@@ -1,0 +1,180 @@
+/* ─── HeartWatch Analytics — Main Stylesheet ─── */
+:root {
+  --bg: #0b0e17;
+  --bg2: #111520;
+  --bg3: #181d2e;
+  --card: #1a1f33;
+  --border: #2a3050;
+  --accent: #e84b6a;
+  --accent2: #ff8c42;
+  --accent3: #4ecdc4;
+  --accent4: #a78bfa;
+  --text: #e8ecf5;
+  --text2: #8892b0;
+  --green: #2ecc71;
+  --yellow: #f39c12;
+  --font-head: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --radius: 14px;
+  --shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-body); min-height: 100vh; }
+
+/* ─── Navbar ─── */
+.navbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 64px;
+  background: rgba(11,14,23,0.95); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 100;
+}
+.nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand-icon { font-size: 1.5rem; color: var(--accent); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.15)} }
+.brand-text { font-family: var(--font-head); font-weight: 800; font-size: 1.1rem; color: var(--text); }
+.brand-text em { font-style: normal; color: var(--accent); margin-left: 2px; }
+.nav-links { list-style: none; display: flex; gap: 0.25rem; }
+.nav-link {
+  text-decoration: none; color: var(--text2); font-size: 0.875rem; font-weight: 500;
+  padding: 0.45rem 1rem; border-radius: 8px; transition: all 0.2s;
+}
+.nav-link:hover, .nav-link.active { background: rgba(232,75,106,0.15); color: var(--accent); }
+
+/* ─── Footer ─── */
+.footer { text-align: center; padding: 1.5rem; color: var(--text2); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 3rem; }
+
+/* ─── Hero Section ─── */
+.hero {
+  min-height: 88vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 4rem 2rem; position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(232,75,106,0.12) 0%, transparent 70%),
+              radial-gradient(ellipse 50% 40% at 80% 80%, rgba(78,205,196,0.08) 0%, transparent 60%);
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(232,75,106,0.15); border: 1px solid rgba(232,75,106,0.3);
+  color: var(--accent); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.4rem 1rem; border-radius: 999px; margin-bottom: 1.5rem; position: relative; z-index: 1;
+}
+.hero h1 {
+  font-family: var(--font-head); font-size: clamp(2.4rem, 6vw, 4.5rem); font-weight: 800;
+  line-height: 1.08; max-width: 800px; position: relative; z-index: 1; margin-bottom: 1.25rem;
+}
+.hero h1 span { color: var(--accent); }
+.hero p {
+  font-size: 1.05rem; color: var(--text2); max-width: 580px; line-height: 1.7;
+  position: relative; z-index: 1; margin-bottom: 2.5rem;
+}
+.hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; position: relative; z-index: 1; }
+
+/* ─── Buttons ─── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 0.7rem 1.6rem; border-radius: 10px; font-family: var(--font-body);
+  font-size: 0.9rem; font-weight: 600; text-decoration: none; cursor: pointer;
+  border: none; transition: all 0.2s;
+}
+.btn-primary { background: var(--accent); color: white; }
+.btn-primary:hover { background: #c73a57; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(232,75,106,0.4); }
+.btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ─── Stats Row ─── */
+.stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; padding: 2rem; max-width: 1200px; margin: 0 auto; }
+.stat-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1.5rem; text-align: center; position: relative; overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.stat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.stat-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent-color, var(--accent)); }
+.stat-card[data-color="teal"]   { --accent-color: var(--accent3); }
+.stat-card[data-color="purple"] { --accent-color: var(--accent4); }
+.stat-card[data-color="orange"] { --accent-color: var(--accent2); }
+.stat-card[data-color="green"]  { --accent-color: var(--green); }
+.stat-value { font-family: var(--font-head); font-size: 2.2rem; font-weight: 800; color: var(--accent-color, var(--accent)); }
+.stat-label { font-size: 0.78rem; color: var(--text2); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.3rem; }
+.stat-sub { font-size: 0.75rem; color: var(--text2); margin-top: 0.25rem; }
+
+/* ─── Section Titles ─── */
+.section { padding: 3rem 2rem; max-width: 1200px; margin: 0 auto; }
+.section-header { margin-bottom: 2rem; }
+.section-header h2 { font-family: var(--font-head); font-size: 1.8rem; font-weight: 700; }
+.section-header h2 span { color: var(--accent); }
+.section-header p { color: var(--text2); margin-top: 0.4rem; font-size: 0.9rem; }
+.tag { display: inline-block; background: rgba(232,75,106,0.15); color: var(--accent); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.2rem 0.7rem; border-radius: 999px; margin-bottom: 0.75rem; }
+
+/* ─── Grid layouts ─── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+@media(max-width:900px) { .grid-2,.grid-3,.grid-4 { grid-template-columns: 1fr; } }
+@media(max-width:1100px){ .grid-3 { grid-template-columns: 1fr 1fr; } }
+
+/* ─── Chart cards ─── */
+.chart-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1.5rem; position: relative; overflow: hidden;
+}
+.chart-card.span-2 { grid-column: span 2; }
+@media(max-width:900px){ .chart-card.span-2 { grid-column: span 1; } }
+.chart-title { font-family: var(--font-head); font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; }
+.chart-subtitle { font-size: 0.78rem; color: var(--text2); margin-bottom: 1.25rem; }
+.chart-wrap { position: relative; height: 260px; }
+.chart-wrap.tall { height: 340px; }
+
+/* ─── KPI strip ─── */
+.kpi-strip { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.kpi-chip {
+  flex: 1; min-width: 140px; background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1rem 1.25rem; border-left: 4px solid var(--chip-color, var(--accent));
+}
+.kpi-val { font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; color: var(--chip-color, var(--accent)); }
+.kpi-lbl { font-size: 0.72rem; color: var(--text2); text-transform: uppercase; letter-spacing: 0.07em; }
+
+/* ─── Risk factor page ─── */
+.risk-intro { padding: 3rem 2rem; max-width: 1200px; margin: 0 auto; }
+.risk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.risk-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1.75rem; position: relative; overflow: hidden; transition: transform 0.2s;
+}
+.risk-card:hover { transform: translateY(-4px); }
+.risk-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.risk-card h3 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem; }
+.risk-card p { color: var(--text2); font-size: 0.875rem; line-height: 1.65; }
+.risk-bar-label { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text2); margin: 1rem 0 0.3rem; }
+.risk-bar-track { height: 6px; background: var(--bg3); border-radius: 999px; overflow: hidden; }
+.risk-bar-fill { height: 100%; border-radius: 999px; background: var(--accent); transition: width 1s ease; }
+
+/* ─── Tableau page ─── */
+.tableau-container { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+.tableau-embed { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; min-height: 500px; display: flex; align-items: center; justify-content: center; }
+.tableau-placeholder { text-align: center; padding: 3rem; }
+.tableau-placeholder h2 { font-family: var(--font-head); font-size: 1.5rem; margin-bottom: 1rem; }
+.tableau-placeholder p { color: var(--text2); max-width: 520px; line-height: 1.65; }
+.step-list { counter-reset: steps; list-style: none; margin-top: 2rem; }
+.step-list li { counter-increment: steps; display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg3); border-radius: 10px; margin-bottom: 0.75rem; }
+.step-list li::before { content: counter(steps); min-width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: white; font-family: var(--font-head); font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; }
+.step-list li p { color: var(--text2); font-size: 0.875rem; line-height: 1.55; }
+.step-list li strong { color: var(--text); }
+
+/* ─── About page ─── */
+.about-hero { padding: 4rem 2rem; max-width: 900px; margin: 0 auto; }
+.about-hero h1 { font-family: var(--font-head); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; }
+.about-hero p { color: var(--text2); line-height: 1.75; font-size: 1rem; margin-bottom: 1rem; }
+.tech-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+.tech-pill { background: var(--bg3); border: 1px solid var(--border); color: var(--text); font-size: 0.8rem; font-weight: 500; padding: 0.35rem 1rem; border-radius: 999px; }
+
+/* ─── Animations ─── */
+.fade-in { opacity: 0; transform: translateY(24px); animation: fadeUp 0.6s ease forwards; }
+@keyframes fadeUp { to { opacity:1; transform: translateY(0); } }
+.fade-in:nth-child(1){animation-delay:0.05s} .fade-in:nth-child(2){animation-delay:0.1s}
+.fade-in:nth-child(3){animation-delay:0.15s} .fade-in:nth-child(4){animation-delay:0.2s}
+.fade-in:nth-child(5){animation-delay:0.25s} .fade-in:nth-child(6){animation-delay:0.3s}

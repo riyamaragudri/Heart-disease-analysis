@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}About — HeartWatch{% endblock %}
+{% block content %}
+<div class="about-hero">
+  <div class="tag">About the Project</div>
+  <h1>Heart Disease Analysis <span style="color:var(--accent)">System</span></h1>
+  <p>HeartWatch Analytics is a full-stack data science project that transforms raw medical records into interactive clinical insights. Built with Python, Flask, and Chart.js — with a Tableau integration guide included.</p>
+  <p>The project spans data generation, statistical analysis, a REST API backend, and a polished frontend dashboard — making it production-ready and easily extensible.</p>
+
+  <div style="margin:2rem 0">
+    <h3 style="font-family:var(--font-head);margin-bottom:1rem">Technology Stack</h3>
+    <div class="tech-grid">
+      {% for t in ['Python 3.x','Flask 3.x','Pandas','NumPy','Chart.js 4','D3.js','Tableau Public','HTML5 / CSS3','JavaScript ES6+'] %}
+      <span class="tech-pill">{{ t }}</span>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;margin-top:1.5rem">
+    <h3 style="font-family:var(--font-head);margin-bottom:1.25rem">📁 Project Structure</h3>
+    <pre style="font-size:0.8rem;color:var(--text2);line-height:1.8;overflow-x:auto">heart_disease_project/
+├── dataset/
+│   ├── generate_dataset.py      # Synthetic data generator
+│   └── heart_disease_data.csv   # Raw dataset (1,500 records)
+├── analysis/
+│   ├── data_analysis.py         # Preprocessing + stats
+│   └── outputs/
+│       ├── analysis_results.json
+│       └── heart_disease_clean.csv   ← import to Tableau
+├── flask_app/
+│   ├── app.py                   # Flask routes + API
+│   ├── templates/
+│   │   ├── base.html
+│   │   ├── index.html
+│   │   ├── dashboard.html
+│   │   ├── risk_factors.html
+│   │   ├── tableau.html
+│   │   └── about.html
+│   └── static/
+│       └── css/main.css
+├── tableau_guide/
+│   └── TABLEAU_GUIDE.md
+├── requirements.txt
+├── run.py
+└── README.md</pre>
+  </div>
+
+  <div style="margin-top:2rem">
+    <h3 style="font-family:var(--font-head);margin-bottom:1rem">Dataset Overview</h3>
+    <div class="grid-2">
+      <div class="chart-card">
+        <div class="chart-title">Features Analyzed</div>
+        <ul style="color:var(--text2);font-size:0.875rem;line-height:2;padding-left:1.25rem">
+          <li>Age, Gender, Region</li>
+          <li>BMI &amp; BMI Category</li>
+          <li>Cholesterol (mg/dL)</li>
+          <li>Resting Blood Pressure</li>
+          <li>Smoking, Alcohol, Diet</li>
+          <li>Physical Activity Level</li>
+          <li>Chest Pain Type</li>
+          <li>ST Depression</li>
+          <li>Max &amp; Resting Heart Rate</li>
+          <li>Heart Disease (target)</li>
+        </ul>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">API Endpoints</div>
+        <ul style="color:var(--text2);font-size:0.8rem;line-height:2;padding-left:1.25rem;font-family:monospace">
+          <li>GET /api/kpi</li>
+          <li>GET /api/age-distribution</li>
+          <li>GET /api/gender-distribution</li>
+          <li>GET /api/cholesterol</li>
+          <li>GET /api/bp</li>
+          <li>GET /api/bmi</li>
+          <li>GET /api/lifestyle</li>
+          <li>GET /api/regional</li>
+          <li>GET /api/correlation</li>
+          <li>GET /api/all</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

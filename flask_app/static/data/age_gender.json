@@ -1,0 +1,72 @@
+[
+  {
+    "age_group": "25-34",
+    "gender": "Female",
+    "cases": 3,
+    "total": 20,
+    "rate": 15.0
+  },
+  {
+    "age_group": "25-34",
+    "gender": "Male",
+    "cases": 12,
+    "total": 47,
+    "rate": 25.5
+  },
+  {
+    "age_group": "35-44",
+    "gender": "Female",
+    "cases": 15,
+    "total": 84,
+    "rate": 17.9
+  },
+  {
+    "age_group": "35-44",
+    "gender": "Male",
+    "cases": 47,
+    "total": 166,
+    "rate": 28.3
+  },
+  {
+    "age_group": "45-54",
+    "gender": "Female",
+    "cases": 31,
+    "total": 146,
+    "rate": 21.2
+  },
+  {
+    "age_group": "45-54",
+    "gender": "Male",
+    "cases": 97,
+    "total": 312,
+    "rate": 31.1
+  },
+  {
+    "age_group": "55-64",
+    "gender": "Female",
+    "cases": 64,
+    "total": 142,
+    "rate": 45.1
+  },
+  {
+    "age_group": "55-64",
+    "gender": "Male",
+    "cases": 142,
+    "total": 300,
+    "rate": 47.3
+  },
+  {
+    "age_group": "65+",
+    "gender": "Female",
+    "cases": 44,
+    "total": 103,
+    "rate": 42.7
+  },
+  {
+    "age_group": "65+",
+    "gender": "Male",
+    "cases": 97,
+    "total": 180,
+    "rate": 53.9
+  }
+]

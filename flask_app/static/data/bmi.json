@@ -1,0 +1,42 @@
+[
+  {
+    "BMICategory": "Normal",
+    "HeartDiseaseLabel": "Disease",
+    "count": 146
+  },
+  {
+    "BMICategory": "Normal",
+    "HeartDiseaseLabel": "No Disease",
+    "count": 265
+  },
+  {
+    "BMICategory": "Obese",
+    "HeartDiseaseLabel": "Disease",
+    "count": 187
+  },
+  {
+    "BMICategory": "Obese",
+    "HeartDiseaseLabel": "No Disease",
+    "count": 308
+  },
+  {
+    "BMICategory": "Overweight",
+    "HeartDiseaseLabel": "Disease",
+    "count": 188
+  },
+  {
+    "BMICategory": "Overweight",
+    "HeartDiseaseLabel": "No Disease",
+    "count": 318
+  },
+  {
+    "BMICategory": "Underweight",
+    "HeartDiseaseLabel": "Disease",
+    "count": 31
+  },
+  {
+    "BMICategory": "Underweight",
+    "HeartDiseaseLabel": "No Disease",
+    "count": 57
+  }
+]

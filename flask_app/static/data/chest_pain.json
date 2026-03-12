@@ -1,0 +1,26 @@
+[
+  {
+    "type": "Asymptomatic",
+    "cases": 253,
+    "total": 687,
+    "rate": 36.8
+  },
+  {
+    "type": "Atypical Angina",
+    "cases": 101,
+    "total": 260,
+    "rate": 38.8
+  },
+  {
+    "type": "Non-Anginal Pain",
+    "cases": 133,
+    "total": 427,
+    "rate": 31.1
+  },
+  {
+    "type": "Typical Angina",
+    "cases": 65,
+    "total": 126,
+    "rate": 51.6
+  }
+]

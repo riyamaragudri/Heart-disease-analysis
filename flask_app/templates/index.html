@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% block title %}HeartWatch Analytics — Home{% endblock %}
+{% block content %}
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-badge">♥ Clinical Data Intelligence</div>
+  <h1 class="fade-in">Decode <span>Heart Disease</span><br>Risk Factors</h1>
+  <p class="fade-in">An interactive analytics platform that transforms 1,500 patient records into actionable insights — helping clinicians and policymakers identify, understand, and act on cardiovascular risk.</p>
+  <div class="hero-buttons fade-in">
+    <a href="/dashboard" class="btn btn-primary">📊 Open Dashboard</a>
+    <a href="/risk-factors" class="btn btn-outline">🔬 Explore Risk Factors</a>
+  </div>
+</section>
+
+<!-- KPIs loaded dynamically -->
+<div id="statsRow" class="stats-row"></div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="tag">Overview</div>
+    <h2>Key <span>Findings</span></h2>
+    <p>Major patterns discovered in the dataset across 1,500 patient records</p>
+  </div>
+  <div class="grid-3">
+    <div class="chart-card fade-in">
+      <div class="chart-title">Age Group Distribution</div>
+      <div class="chart-subtitle">Heart disease positive vs negative by age band</div>
+      <div class="chart-wrap"><canvas id="ageChart"></canvas></div>
+    </div>
+    <div class="chart-card fade-in">
+      <div class="chart-title">Gender Breakdown</div>
+      <div class="chart-subtitle">Prevalence by gender</div>
+      <div class="chart-wrap"><canvas id="genderChart"></canvas></div>
+    </div>
+    <div class="chart-card fade-in">
+      <div class="chart-title">Monthly Case Trend</div>
+      <div class="chart-subtitle">New diagnoses per month</div>
+      <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<div style="background:var(--bg2); padding: 3rem 2rem; border-top:1px solid var(--border); border-bottom:1px solid var(--border)">
+  <div style="max-width:1200px; margin:0 auto;">
+    <div class="section-header">
+      <div class="tag">Features</div>
+      <h2>What's <span>Inside</span></h2>
+    </div>
+    <div class="grid-4">
+      {% for item in [
+        ("📊","Interactive Dashboard","12 chart types covering age, gender, cholesterol, BP, lifestyle and more."),
+        ("🔬","Risk Factor Analysis","Deep-dive into how smoking, BMI, diet and activity impact outcomes."),
+        ("🗺️","Tableau Integration","Step-by-step guide to recreate every visualization in Tableau Desktop."),
+        ("🧹","Clean Python Pipeline","Automated data generation, cleaning and analysis scripts included."),
+      ] %}
+      <div class="chart-card fade-in" style="text-align:center">
+        <div style="font-size:2rem; margin-bottom:0.75rem">{{ item[0] }}</div>
+        <h3 style="font-family:var(--font-head); font-size:0.95rem; margin-bottom:0.5rem">{{ item[1] }}</h3>
+        <p style="color:var(--text2); font-size:0.82rem; line-height:1.6">{{ item[2] }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+<script>
+const COLORS = {
+  red: '#e84b6a', teal: '#4ecdc4', purple: '#a78bfa',
+  orange: '#ff8c42', green: '#2ecc71', blue: '#3b82f6',
+  yellow: '#f59e0b', pink: '#ec4899'
+};
+const CHART_DEFAULTS = {
+  responsive: true, maintainAspectRatio: false,
+  plugins: { legend: { labels: { color: '#8892b0', font: { family: 'DM Sans', size: 11 } } } },
+  scales: {
+    x: { ticks: { color: '#8892b0', font:{family:'DM Sans',size:10} }, grid: { color: 'rgba(255,255,255,0.04)' } },
+    y: { ticks: { color: '#8892b0', font:{family:'DM Sans',size:10} }, grid: { color: 'rgba(255,255,255,0.04)' } }
+  }
+};
+
+// Load KPIs
+fetch('/api/kpi').then(r=>r.json()).then(d => {
+  const items = [
+    { val: d.total_patients.toLocaleString(), lbl: 'Total Patients', sub: 'in dataset', color: 'var(--accent)' },
+    { val: d.positive_cases.toLocaleString(), lbl: 'Positive Cases', sub: `${d.prevalence_pct}% prevalence`, color: 'var(--accent3)', attr: 'teal' },
+    { val: d.avg_age, lbl: 'Average Age', sub: 'years', color: 'var(--accent4)', attr: 'purple' },
+    { val: `${d.smoking_pct}%`, lbl: 'Smokers', sub: 'in cohort', color: 'var(--accent2)', attr: 'orange' },
+    { val: d.avg_bmi, lbl: 'Avg BMI', sub: 'kg/m²', color: 'var(--green)', attr: 'green' },
+  ];
+  document.getElementById('statsRow').innerHTML = items.map(i =>
+    `<div class="stat-card fade-in" ${i.attr?`data-color="${i.attr}"`:''}>
+      <div class="stat-value" style="color:${i.color}">${i.val}</div>
+      <div class="stat-label">${i.lbl}</div>
+      <div class="stat-sub">${i.sub}</div>
+    </div>`).join('');
+});
+
+// Age chart
+fetch('/api/age-distribution').then(r=>r.json()).then(data => {
+  const ages = [...new Set(data.map(d=>d.AgeGroup))].sort();
+  const pos = ages.map(a => (data.find(d=>d.AgeGroup===a&&d.HeartDisease_Label==='Positive')||{count:0}).count);
+  const neg = ages.map(a => (data.find(d=>d.AgeGroup===a&&d.HeartDisease_Label==='Negative')||{count:0}).count);
+  new Chart(document.getElementById('ageChart'), {
+    type: 'bar',
+    data: { labels: ages,
+      datasets: [
+        { label: 'Positive', data: pos, backgroundColor: COLORS.red+'cc', borderRadius: 4 },
+        { label: 'Negative', data: neg, backgroundColor: COLORS.teal+'cc', borderRadius: 4 }
+      ]
+    },
+    options: { ...CHART_DEFAULTS, plugins: { ...CHART_DEFAULTS.plugins, legend: { ...CHART_DEFAULTS.plugins.legend } } }
+  });
+});
+
+// Gender chart
+fetch('/api/gender-distribution').then(r=>r.json()).then(data => {
+  const genders = [...new Set(data.map(d=>d.Gender))];
+  const totals = genders.map(g => data.filter(d=>d.Gender===g).reduce((s,d)=>s+d.count,0));
+  new Chart(document.getElementById('genderChart'), {
+    type: 'doughnut',
+    data: { labels: genders, datasets: [{ data: totals, backgroundColor: [COLORS.red, COLORS.teal, COLORS.purple], borderWidth: 0 }] },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { color: '#8892b0', padding: 16, font:{family:'DM Sans',size:11} } } } }
+  });
+});
+
+// Trend chart
+fetch('/api/monthly-trend').then(r=>r.json()).then(data => {
+  new Chart(document.getElementById('trendChart'), {
+    type: 'line',
+    data: {
+      labels: data.map(d=>d.month),
+      datasets: [{ label: 'Cases', data: data.map(d=>d.cases), borderColor: COLORS.red, backgroundColor: COLORS.red+'22', fill: true, tension: 0.4, pointRadius: 3 }]
+    },
+    options: { ...CHART_DEFAULTS }
+  });
+});
+</script>
+{% endblock %}

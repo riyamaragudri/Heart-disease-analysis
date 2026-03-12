@@ -1,0 +1,249 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — HeartWatch{% endblock %}
+{% block content %}
+<div class="section">
+  <div class="section-header">
+    <div class="tag">Live Dashboard</div>
+    <h2>Heart Disease <span>Analytics</span></h2>
+    <p>Comprehensive visualization of all key metrics from the 1,500 patient dataset</p>
+  </div>
+
+  <!-- KPI Strip -->
+  <div id="kpiStrip" class="kpi-strip"></div>
+
+  <!-- Row 1 -->
+  <div class="grid-2" style="margin-bottom:1.5rem">
+    <div class="chart-card fade-in">
+      <div class="chart-title">Age Group vs Heart Disease</div>
+      <div class="chart-subtitle">Positive/Negative split by age band</div>
+      <div class="chart-wrap tall"><canvas id="ageBar"></canvas></div>
+    </div>
+    <div class="chart-card fade-in">
+      <div class="chart-title">Cholesterol Levels</div>
+      <div class="chart-subtitle">Risk category distribution</div>
+      <div class="chart-wrap tall"><canvas id="cholBar"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Row 2 -->
+  <div class="grid-2" style="margin-bottom:1.5rem">
+    <div class="chart-card fade-in">
+      <div class="chart-title">Blood Pressure Category</div>
+      <div class="chart-subtitle">Hypertension stages vs outcome</div>
+      <div class="chart-wrap tall"><canvas id="bpBar"></canvas></div>
+    </div>
+    <div class="chart-card fade-in">
+      <div class="chart-title">BMI Category</div>
+      <div class="chart-subtitle">Body mass index vs heart disease</div>
+      <div class="chart-wrap tall"><canvas id="bmiBar"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Row 3 -->
+  <div class="grid-3" style="margin-bottom:1.5rem">
+    <div class="chart-card fade-in">
+      <div class="chart-title">Smoking Status</div>
+      <div class="chart-subtitle">Smokers vs non-smokers</div>
+      <div class="chart-wrap"><canvas id="smokePie"></canvas></div>
+    </div>
+    <div class="chart-card fade-in">
+      <div class="chart-title">Physical Activity</div>
+      <div class="chart-subtitle">Activity level breakdown</div>
+      <div class="chart-wrap"><canvas id="actBar"></canvas></div>
+    </div>
+    <div class="chart-card fade-in">
+      <div class="chart-title">Chest Pain Type</div>
+      <div class="chart-subtitle">Type classification by outcome</div>
+      <div class="chart-wrap"><canvas id="cpBar"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Row 4 -->
+  <div class="grid-2" style="margin-bottom:1.5rem">
+    <div class="chart-card fade-in">
+      <div class="chart-title">Regional Prevalence Rate</div>
+      <div class="chart-subtitle">Heart disease % per region</div>
+      <div class="chart-wrap"><canvas id="regionBar"></canvas></div>
+    </div>
+    <div class="chart-card fade-in">
+      <div class="chart-title">Risk Score by Age Group</div>
+      <div class="chart-subtitle">Computed composite risk</div>
+      <div class="chart-wrap"><canvas id="riskLine"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Correlation Heatmap -->
+  <div class="chart-card fade-in" style="margin-bottom:1.5rem">
+    <div class="chart-title">Correlation Heatmap</div>
+    <div class="chart-subtitle">Pearson correlation between numeric features</div>
+    <div id="heatmap" style="overflow-x:auto; padding-top:1rem;"></div>
+  </div>
+
+  <!-- Alcohol & Diet -->
+  <div class="grid-2">
+    <div class="chart-card fade-in">
+      <div class="chart-title">Alcohol Consumption</div>
+      <div class="chart-subtitle">Drinking habits vs heart disease</div>
+      <div class="chart-wrap"><canvas id="alcBar"></canvas></div>
+    </div>
+    <div class="chart-card fade-in">
+      <div class="chart-title">Diet Quality</div>
+      <div class="chart-subtitle">Nutritional habits vs outcome</div>
+      <div class="chart-wrap"><canvas id="dietBar"></canvas></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const C = { red:'#e84b6a', teal:'#4ecdc4', purple:'#a78bfa', orange:'#ff8c42', green:'#2ecc71', blue:'#3b82f6', yellow:'#f59e0b' };
+const PALETTE = [C.red, C.teal, C.purple, C.orange, C.green, C.blue, C.yellow];
+
+const DOPTS = {
+  responsive:true, maintainAspectRatio:false,
+  plugins:{ legend:{ labels:{ color:'#8892b0', font:{family:'DM Sans',size:10} } } },
+  scales:{
+    x:{ ticks:{color:'#8892b0',font:{family:'DM Sans',size:9}}, grid:{color:'rgba(255,255,255,0.04)'} },
+    y:{ ticks:{color:'#8892b0',font:{family:'DM Sans',size:9}}, grid:{color:'rgba(255,255,255,0.04)'} }
+  }
+};
+
+function groupedBar(id, labels, posData, negData) {
+  new Chart(document.getElementById(id), {
+    type:'bar',
+    data:{ labels, datasets:[
+      {label:'Positive', data:posData, backgroundColor:C.red+'cc', borderRadius:4},
+      {label:'Negative', data:negData, backgroundColor:C.teal+'cc', borderRadius:4}
+    ]},
+    options:{...DOPTS}
+  });
+}
+
+function pivot(data, labelKey, outcomeKey='HeartDisease_Label') {
+  const labels = [...new Set(data.map(d=>d[labelKey]))].sort();
+  const pos = labels.map(l=>(data.find(d=>d[labelKey]===l&&d[outcomeKey]==='Positive')||{count:0}).count);
+  const neg = labels.map(l=>(data.find(d=>d[labelKey]===l&&d[outcomeKey]==='Negative')||{count:0}).count);
+  return {labels, pos, neg};
+}
+
+// KPIs
+fetch('/api/kpi').then(r=>r.json()).then(d=>{
+  const chips=[
+    {val:d.total_patients,lbl:'Total Patients',color:'var(--accent)'},
+    {val:`${d.prevalence_pct}%`,lbl:'Prevalence',color:'#e84b6a'},
+    {val:d.avg_age,lbl:'Avg Age',color:'#a78bfa'},
+    {val:`${d.avg_cholesterol} mg/dL`,lbl:'Avg Cholesterol',color:'#ff8c42'},
+    {val:`${d.avg_bp} mmHg`,lbl:'Avg Blood Pressure',color:'#4ecdc4'},
+    {val:`${d.avg_bmi}`,lbl:'Avg BMI',color:'#2ecc71'},
+  ];
+  document.getElementById('kpiStrip').innerHTML=chips.map(c=>
+    `<div class="kpi-chip" style="--chip-color:${c.color}">
+      <div class="kpi-val">${c.val}</div><div class="kpi-lbl">${c.lbl}</div>
+    </div>`).join('');
+});
+
+fetch('/api/age-distribution').then(r=>r.json()).then(d=>{
+  const {labels,pos,neg}=pivot(d,'AgeGroup'); groupedBar('ageBar',labels,pos,neg);
+});
+fetch('/api/cholesterol').then(r=>r.json()).then(d=>{
+  const {labels,pos,neg}=pivot(d,'CholBin'); groupedBar('cholBar',labels,pos,neg);
+});
+fetch('/api/bp').then(r=>r.json()).then(d=>{
+  const {labels,pos,neg}=pivot(d,'BPBin'); groupedBar('bpBar',labels,pos,neg);
+});
+fetch('/api/bmi').then(r=>r.json()).then(d=>{
+  const {labels,pos,neg}=pivot(d,'BMICategory'); groupedBar('bmiBar',labels,pos,neg);
+});
+fetch('/api/chest-pain').then(r=>r.json()).then(d=>{
+  const {labels,pos,neg}=pivot(d,'ChestPainType'); groupedBar('cpBar',labels,pos,neg);
+});
+
+fetch('/api/lifestyle').then(r=>r.json()).then(d=>{
+  // Smoking pie
+  const smoke=d.Smoking||[];
+  const sLabels=[...new Set(smoke.map(x=>x.Smoking))];
+  const sTots=sLabels.map(l=>smoke.filter(x=>x.Smoking===l).reduce((s,x)=>s+x.count,0));
+  new Chart(document.getElementById('smokePie'),{
+    type:'doughnut',
+    data:{labels:sLabels,datasets:[{data:sTots,backgroundColor:[C.red,C.teal],borderWidth:0}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:'#8892b0',font:{family:'DM Sans',size:10}}}}}
+  });
+
+  // Activity bar
+  const act=d.PhysicalActivity||[];
+  const aLabels=[...new Set(act.map(x=>x.PhysicalActivity))].sort();
+  const aPos=aLabels.map(l=>(act.find(x=>x.PhysicalActivity===l&&x.HeartDisease_Label==='Positive')||{count:0}).count);
+  const aNeg=aLabels.map(l=>(act.find(x=>x.PhysicalActivity===l&&x.HeartDisease_Label==='Negative')||{count:0}).count);
+  new Chart(document.getElementById('actBar'),{
+    type:'bar',
+    data:{labels:aLabels,datasets:[{label:'Positive',data:aPos,backgroundColor:C.red+'cc',borderRadius:4},{label:'Negative',data:aNeg,backgroundColor:C.teal+'cc',borderRadius:4}]},
+    options:{...DOPTS}
+  });
+
+  // Alcohol
+  const alc=d.AlcoholConsumption||[];
+  const alLabels=[...new Set(alc.map(x=>x.AlcoholConsumption))];
+  const alPos=alLabels.map(l=>(alc.find(x=>x.AlcoholConsumption===l&&x.HeartDisease_Label==='Positive')||{count:0}).count);
+  const alNeg=alLabels.map(l=>(alc.find(x=>x.AlcoholConsumption===l&&x.HeartDisease_Label==='Negative')||{count:0}).count);
+  new Chart(document.getElementById('alcBar'),{
+    type:'bar',
+    data:{labels:alLabels,datasets:[{label:'Positive',data:alPos,backgroundColor:C.red+'cc',borderRadius:4},{label:'Negative',data:alNeg,backgroundColor:C.teal+'cc',borderRadius:4}]},
+    options:{...DOPTS}
+  });
+
+  // Diet
+  const diet=d.DietQuality||[];
+  const dLabels=[...new Set(diet.map(x=>x.DietQuality))];
+  const dPos=dLabels.map(l=>(diet.find(x=>x.DietQuality===l&&x.HeartDisease_Label==='Positive')||{count:0}).count);
+  const dNeg=dLabels.map(l=>(diet.find(x=>x.DietQuality===l&&x.HeartDisease_Label==='Negative')||{count:0}).count);
+  new Chart(document.getElementById('dietBar'),{
+    type:'bar',
+    data:{labels:dLabels,datasets:[{label:'Positive',data:dPos,backgroundColor:C.red+'cc',borderRadius:4},{label:'Negative',data:dNeg,backgroundColor:C.teal+'cc',borderRadius:4}]},
+    options:{...DOPTS}
+  });
+});
+
+fetch('/api/regional').then(r=>r.json()).then(data=>{
+  new Chart(document.getElementById('regionBar'),{
+    type:'bar',
+    data:{
+      labels:data.map(d=>d.Region),
+      datasets:[{label:'Positive Rate (%)',data:data.map(d=>d.rate),backgroundColor:PALETTE,borderRadius:6}]
+    },
+    options:{...DOPTS, plugins:{...DOPTS.plugins,legend:{display:false}}}
+  });
+});
+
+fetch('/api/risk-by-age').then(r=>r.json()).then(data=>{
+  new Chart(document.getElementById('riskLine'),{
+    type:'line',
+    data:{
+      labels:data.map(d=>d.AgeGroup),
+      datasets:[{label:'Avg Risk Score',data:data.map(d=>d.avg_risk),borderColor:C.red,backgroundColor:C.red+'22',fill:true,tension:0.4,pointRadius:5,pointBackgroundColor:C.red}]
+    },
+    options:{...DOPTS}
+  });
+});
+
+// Correlation heatmap with SVG/D3-style table
+fetch('/api/correlation').then(r=>r.json()).then(data=>{
+  const cols=[...new Set(data.map(d=>d.x))];
+  const get=(x,y)=>(data.find(d=>d.x===x&&d.y===y)||{value:0}).value;
+  const size=50;
+  let html=`<div style="display:grid;grid-template-columns:repeat(${cols.length+1},${size}px);gap:2px;font-size:9px;font-family:'DM Sans'">`;
+  html+=`<div></div>${cols.map(c=>`<div style="writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;color:#8892b0;height:80px;overflow:hidden;text-overflow:ellipsis">${c}</div>`).join('')}`;
+  cols.forEach(row=>{
+    html+=`<div style="color:#8892b0;display:flex;align-items:center;padding-right:4px;font-size:9px;white-space:nowrap;overflow:hidden">${row}</div>`;
+    cols.forEach(col=>{
+      const v=get(col,row);
+      const a=Math.abs(v);
+      const bg=v>0?`rgba(232,75,106,${a.toFixed(2)})`:`rgba(78,205,196,${a.toFixed(2)})`;
+      html+=`<div style="width:${size}px;height:${size}px;background:${bg};border-radius:4px;display:flex;align-items:center;justify-content:center;color:${a>0.4?'#fff':'#8892b0'}">${v.toFixed(2)}</div>`;
+    });
+  });
+  html+='</div>';
+  document.getElementById('heatmap').innerHTML=html;
+});
+</script>
+{% endblock %}
